@@ -56,13 +56,6 @@ class Prediction:
         return res
 
     def update_from_c_equal_3(self,s1,s2):
-        """if s1 in self.dico_valeurs_possibles.keys() and s2 not in self.dico_valeurs_possibles.keys():
-            self.dico_valeurs_possibles[s2]=copy.deepcopy(self.dico_valeurs_possibles[s1])
-            res=True
-        elif s1 not in self.dico_valeurs_possibles.keys() and s2 in self.dico_valeurs_possibles.keys():
-            self.dico_valeurs_possibles[s1]=copy.deepcopy(self.dico_valeurs_possibles[s2])
-            res=True
-        elif s1 in self.dico_valeurs_possibles.keys() and s2 in self.dico_valeurs_possibles.keys():"""
         res=False
         intersection=self.dico_valeurs_possibles[s1]&self.dico_valeurs_possibles[s2]
         if self.dico_valeurs_possibles[s1]!=intersection:
@@ -82,10 +75,6 @@ class Prediction:
             self.dico_valeurs_possibles[s2]=val_poss[0]
             res=True
         elif len(val_poss)>1:
-            #if s2 not in self.dico_valeurs_possibles.keys():
-             #   self.dico_valeurs_possibles[s2]=set(val_poss)
-              #  res=True
-            #else: # si déjà dans dico valeurs possibles
             new_value=set(val_poss)&self.dico_valeurs_possibles[s2] # intersection
             if self.dico_valeurs_possibles[s2]!=new_value:
                 self.dico_valeurs_possibles[s2]=new_value # update
@@ -101,10 +90,6 @@ class Prediction:
             self.dico_valeurs_possibles[s1]=val_poss[0]
             res=True
         elif len(val_poss)>1:
-            #if s1 not in self.dico_valeurs_possibles.keys():
-                #self.dico_valeurs_possibles[s1]=set(val_poss)
-                #res=True
-            #else:
             new_value=set(val_poss)&self.dico_valeurs_possibles[s1] # intersection
             if self.dico_valeurs_possibles[s1]!=new_value:
                 self.dico_valeurs_possibles[s1]=new_value # update
@@ -112,17 +97,6 @@ class Prediction:
         return res
 
     def update_from_c_diff_3(self,s1,s2):
-        """if s1 not in self.dico_valeurs_possibles.keys() and s2 not in self.dico_valeurs_possibles.keys():
-            self.dico_valeurs_possibles[s1]=set(self.value_possibles(-1,1)) #on sait que ca ne peut pas valoir 1
-            self.dico_valeurs_possibles[s2]=set(self.value_possibles(0,2)) #on sait que ca ne peut pas valoir 0
-            res=True
-        elif s1 in self.dico_valeurs_possibles.keys() and s2 not in self.dico_valeurs_possibles.keys():
-            self.dico_valeurs_possibles[s2]=set(self.value_possibles(min(self.dico_valeurs_possibles[s1]),2))
-            res=True
-        elif s1 not in self.dico_valeurs_possibles.keys() and s2 in self.dico_valeurs_possibles.keys():
-            self.dico_valeurs_possibles[s1]=set(self.value_possibles(-1,max(self.dico_valeurs_possibles[s2])))
-            res=True
-        else: # les deux ont des valeurs possibles"""
         res=False
         val_1=np.array(list(self.dico_valeurs_possibles[s1]))
         val_2=np.array(list(self.dico_valeurs_possibles[s2]))

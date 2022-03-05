@@ -58,7 +58,6 @@ def main():
     p=3 # Nombre de niveaux discrets des valeurs de Phi
     k=7 # Nombre de Phi(k,l) non nuls (doit etre < n**2)
     n=len(liste_criteres) # Nombre de critères
-    #test git
 
     # -- pour les questions
     q_type="Sequences_plus_difficiles" 

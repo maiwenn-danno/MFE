@@ -125,11 +125,11 @@ class Heuristique:
         i=0
         for arr_sequences in self.liste_questions:
             Question=Question_simulation(self.q_type,len(arr_sequences),arr_sequences)
-            Question_simul_Phi_possibles=Question.simulation(self.Phi_possibles,self.contexte.get_liste_criteres())
-            if ((max(Question_simul_Phi_possibles)<best_question_nb_Phi_max) or (max(Question_simul_Phi_possibles)==best_question_nb_Phi_max and sum(Question_simul_Phi_possibles)/len(Question_simul_Phi_possibles)<best_question_nb_Phi_avg)) and sum(Question_simul_Phi_possibles)/len(Question_simul_Phi_possibles)>0:
+            simul_Phi_possibles=Question.simulation(self.Phi_possibles,self.contexte.get_liste_criteres())
+            if ((max(simul_Phi_possibles)<best_question_nb_Phi_max) or (max(simul_Phi_possibles)==best_question_nb_Phi_max and sum(simul_Phi_possibles)/len(simul_Phi_possibles)<best_question_nb_Phi_avg)) and sum(simul_Phi_possibles)/len(simul_Phi_possibles)>0:
                 i+=1
-                best_question_nb_Phi_max=max(Question_simul_Phi_possibles)
-                best_question_nb_Phi_avg=sum(Question_simul_Phi_possibles)/len(Question_simul_Phi_possibles)
+                best_question_nb_Phi_max=max(simul_Phi_possibles)
+                best_question_nb_Phi_avg=sum(simul_Phi_possibles)/len(simul_Phi_possibles)
                 best_question=Question.get_sequences()
         if best_question==[]:
             print("error")
