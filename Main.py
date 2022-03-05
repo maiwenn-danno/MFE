@@ -9,7 +9,7 @@ from Phi_class import *
 from Sequence import *
 from Prediction import *
 from Question_simulation import *
-
+# test
 def poser_quest_init(n,p,Phi_DM,dico_criteres,liste_criteres,liste_sequences_diff_possibles,liste_contraintes_equal,liste_contraintes_diff,Print):
     print("1--- Questions initiales")
     # 1: Attribuer les critères aux niveaux de difficulté
