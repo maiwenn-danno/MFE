@@ -55,9 +55,9 @@ def main():
     # ----------- Parametres ---------------
     # -- pour Phi 
     liste_criteres=["math","phys","litt"] #liste_criteres= ["math","phys","litt","angl"] #liste_criteres= ["math","phys","litt","angl","ndls"] #liste_criteres= ["math","phys","litt","angl","ndls","hist","geo"]
-    n=len(liste_criteres) # Nombre de critères
     p=3 # Nombre de niveaux discrets des valeurs de Phi
     k=7 # Nombre de Phi(k,l) non nuls (doit etre < n**2)
+    n=len(liste_criteres) # Nombre de critères
 
     # -- pour les questions
     q_type="Sequences_plus_difficiles" 
@@ -68,12 +68,12 @@ def main():
     nb_Phi_seuil=1000 #Qd estimate_nb_Phi_possibles < ce seuil, génération systématique des solutions
     nb_Phi_max=500 #Nombre de solutions admissibles utilisées pour choisir la meilleure question
     nb_it_max=50000 #Nombre d'itérations maximales pour la recherche aléatoire de solutions admissibles
-
+    
     # -- pour la précision attendue (cf arret de l'heuristique)
     nb_quest_exact=0 #Nb de questions que l'on accepte pour trouver la solution exacte
     max_biais=math.ceil(p/2) #<p #Biais max que l'on autorise dans les Phi_possibles pour l'arret de l'heuristique
     max_nb_biais=n**2//3 # < n**2 #Nb max de valeurs non fixées que l'on autorise pour l'arrêt de l'heuristique
-
+    
     # -- pour l'valuation de la performance:
     n_DM=20 # nb de Phi_DM à générer
 
